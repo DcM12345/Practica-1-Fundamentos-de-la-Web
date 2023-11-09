@@ -21,7 +21,9 @@ h1 {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    
+    font-size: 16px;
+    width: 150px; /* Puedes ajustar el valor según tu preferencia */
+    padding: 10px;
 
 
 
