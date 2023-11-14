@@ -61,13 +61,13 @@ main {
     width: 400px;
   }
   .botones {
-    text-align: center; /* Alinea los elementos al centro */
-    margin-top: 20px; /* Margen superior de 20px */
+    text-align: center; 
+    margin-top: 20px; 
 }
 
 #BotonBorrar,
 #BotonEditar,
 #BotonElementos {
-    display: inline-block; /* Botones en línea */
-    margin: 0 10px; /* Espacio entre los botones */
+    display: inline-block; 
+    margin: 0 10px; 
 }
