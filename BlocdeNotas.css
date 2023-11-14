@@ -1,6 +1,5 @@
 #cuerpo{
 background-color:burlywood;
-
 }
 h1 {
     font-size: 100px;
@@ -45,7 +44,6 @@ main {
   input, textarea {
     width: 100%;
     padding: 8px;
-    box-sizing: border-box;
   }
 
   button {
@@ -62,3 +60,4 @@ main {
     margin-right: auto;
     width: 400px;
   }
+  
