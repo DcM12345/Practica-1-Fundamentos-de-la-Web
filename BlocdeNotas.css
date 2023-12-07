@@ -71,3 +71,6 @@ main {
     display: inline-block; 
     margin: 0 10px; 
 }
+.tarjeta .card {
+  height: 400px;
+}
