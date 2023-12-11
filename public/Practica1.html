@@ -21,7 +21,7 @@
     loadElements();
 
     async function loadElements() {
-        // Request elements from server
+        
         response = await fetch("/notesList");
         const text = await response.text();
         console.log(text);
@@ -30,10 +30,10 @@
         notes_container.innerHTML = text;
     }
     async function loadNote1() {
-        // Request elements from server
+        
         response = await fetch("/note1");
         const text = await response.text();
-        // console.log(text);
+       
 
         notes_container = document.getElementById("container");
         notes_container.innerHTML += text;

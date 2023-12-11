@@ -1,26 +1,51 @@
 <!DOCTYPE html>
 <html>
-<title>AñadirNota</title>
-<link type="text/css" rel="stylesheet" href="styles.css"/>
+<head>
+    <title>Añadir Nota</title>
+    <link type="text/css" rel="stylesheet" href="styles.css" />
+</head>
 <body id="cuerpo">
     <main>
-      <form>
-        <div class="form-group">
-          <label for="sumelemento">Nota: </label>
-          <input type="subelemento" class="form-control" id="Subelemento" placeholder="Introduce el título de la nota">
-        </div>
-        <label>Descripción:</label>
-        <textarea id="descripcion" name="descripcion" rows="10" required></textarea>
-        <label for="imagen">Imagen:</label>
-        <input type="file" id="imagen" name="imagen" accept="image/*">
-        <button type="submit">Guardar</button>
-        <a href="Practica1.html" class="cancel"><button type="button">Cancelar</button></a>
-      </form>
+        <form id="formularioAñadir" method="post" action="/guardarNota">
+            <div class="form-group">
+                <label for="Subelemento">Nota: </label>
+                <input type="text" class="form-control" id="subelemento" name="subelemento" placeholder="Introduce el título de la nota" required>
+            </div>
+            <label for="descripcion">Descripción:</label>
+            <textarea id="descripcion" name="descripcion" rows="10" required></textarea>
+            <label for="imagen">Imagen:</label>
+            <input type="text" id="imagen" name="imagen" placeholder="Introduce la URL de la imagen" required>
+            <button type="submit">Guardar</button>
+            <a href="Practica1.html" class="cancel"><button type="button">Cancelar</button></a>
+        </form>
     </main>
-  </body>
-  </html>
+</body>
+<script>
+    async function submitForm() {
+        const subelemento = document.getElementById("subelemento").value;
+        const descripcion = document.getElementById("descripcion").value;
+        const imagen = document.getElementById("imagen").value;
 
+        // Verificar que los campos no estén vacíos
+        if (!subelemento || !descripcion || !imagen) {
+            console.error('Por favor, completa todos los campos.');
+            return;
+        }
 
+        // Enviar el formulario al servidor
+        const response = await fetch("/guardarNota", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: `subelemento=${encodeURIComponent(subelemento)}&descripcion=${encodeURIComponent(descripcion)}&imagen=${encodeURIComponent(imagen)}`,
+        });
 
+        if (response.redirected) {
+            console.log('Redirigiendo a:', response.url);
+            window.location.href = response.url;
+        }
+    }
+</script>
 
 </html>
